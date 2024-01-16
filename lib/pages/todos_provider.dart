@@ -8,6 +8,8 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
   void addTodo(String desc) {
     // spread operator: ...
     state = [...state, Todo.add(desc: desc)];
+    // state.add(Todo.add(desc: desc));
+    // print('in addTodo: $state');
   }
 
   void toggleTodo(String id) {
@@ -27,6 +29,7 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
   }
 }
 
+// final todosProvider = StateNotifierProvider.autoDispose<TodosNotifier, List<Todo>>((ref) {
 final todosProvider = StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
   return TodosNotifier();
 });
