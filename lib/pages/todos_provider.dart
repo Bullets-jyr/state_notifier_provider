@@ -5,9 +5,11 @@ import '../models/todo_model.dart';
 class TodosNotifier extends StateNotifier<List<Todo>> {
   TodosNotifier() : super([]);
 
+  // business logic
   void addTodo(String desc) {
     // spread operator: ...
     state = [...state, Todo.add(desc: desc)];
+    // StateNotifier에서는 state를 직접 mutate하면 안됩니다.
     // state.add(Todo.add(desc: desc));
     // print('in addTodo: $state');
   }
@@ -29,7 +31,7 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
   }
 }
 
-// final todosProvider = StateNotifierProvider.autoDispose<TodosNotifier, List<Todo>>((ref) {
 final todosProvider = StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
+// final todosProvider = StateNotifierProvider.autoDispose<TodosNotifier, List<Todo>>((ref) {
   return TodosNotifier();
 });
