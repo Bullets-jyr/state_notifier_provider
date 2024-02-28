@@ -9,7 +9,7 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
   void addTodo(String desc) {
     // spread operator: ...
     state = [...state, Todo.add(desc: desc)];
-    // StateNotifier에서는 state를 직접 mutate하면 안됩니다.
+    // StateNotifier에서는 state를 직접 mutation(mutate)하면 안됩니다. (UI에 반영안됨)
     // state.add(Todo.add(desc: desc));
     // print('in addTodo: $state');
   }

@@ -19,13 +19,14 @@ class TodosPage extends ConsumerWidget {
         children: [
           const AddTodo(),
           const SizedBox(height: 20),
-          // Column + ListView = unbounded height
+          // Column + ListView = unbounded height, lender overflow
           Expanded(
             child: ListView(
+              // collection for-loop
               children: [
                 for (final todo in todos)
                   CheckboxListTile(
-                    // Checkbox 위치
+                    // Checkbox 위치를 앞쪽으로 표시
                     controlAffinity: ListTileControlAffinity.leading,
                     value: todo.completed,
                     onChanged: (value) {
