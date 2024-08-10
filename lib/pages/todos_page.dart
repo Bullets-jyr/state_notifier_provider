@@ -19,6 +19,10 @@ class TodosPage extends ConsumerWidget {
         children: [
           const AddTodo(),
           const SizedBox(height: 20),
+          // ListView위젯이 Column위젯 내에 있게 되면 둘다
+          // unbounded height를 가지게 되기 때문에
+          // lender overflow에러가 발생합니다.
+          // 이를 방지하기 위해서 ListView위젯을 Expanded위젯으로 감싸겠습니다.
           // Column + ListView = unbounded height, lender overflow
           Expanded(
             child: ListView(
@@ -26,7 +30,7 @@ class TodosPage extends ConsumerWidget {
               children: [
                 for (final todo in todos)
                   CheckboxListTile(
-                    // Checkbox 위치를 앞쪽으로 표시
+                    // Checkbox가 앞쪽에 표시되도록 하겠습니다.
                     controlAffinity: ListTileControlAffinity.leading,
                     value: todo.completed,
                     onChanged: (value) {

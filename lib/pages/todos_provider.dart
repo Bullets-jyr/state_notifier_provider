@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/todo_model.dart';
 
 class TodosNotifier extends StateNotifier<List<Todo>> {
+  // initial state: []
   TodosNotifier() : super([]);
 
   // business logic

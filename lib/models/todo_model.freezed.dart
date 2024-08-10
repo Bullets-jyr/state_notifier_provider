@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Todo {
+// 그렇지만 default value로 runtime에 값이 정해지는 value를 줄 순 없습니다.
   String get id => throw _privateConstructorUsedError;
   String get desc => throw _privateConstructorUsedError;
   bool get completed => throw _privateConstructorUsedError;
@@ -113,6 +114,7 @@ class _$TodoImpl with DiagnosticableTreeMixin implements _Todo {
   const _$TodoImpl(
       {required this.id, required this.desc, this.completed = false});
 
+// 그렇지만 default value로 runtime에 값이 정해지는 value를 줄 순 없습니다.
   @override
   final String id;
   @override
@@ -163,7 +165,7 @@ abstract class _Todo implements Todo {
       required final String desc,
       final bool completed}) = _$TodoImpl;
 
-  @override
+  @override // 그렇지만 default value로 runtime에 값이 정해지는 value를 줄 순 없습니다.
   String get id;
   @override
   String get desc;
